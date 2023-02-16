@@ -9,6 +9,17 @@ const create = async (req, res) => {
   }
 }
 
+const index = async (req, res) => {
+  try {
+    const makes = await Make.findAll()
+    res.status(200).json(makes)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
 module.exports = {
   create,
+  index,
+  
 }
