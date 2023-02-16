@@ -1,4 +1,4 @@
-const { Make } = require("../models")
+const { Make, Car } = require("../models")
 
 const create = async (req, res) => {
   try {
@@ -41,9 +41,20 @@ const deleteMake = async (req, res) => {
   }
 }
 
+const addCar = async (req, res) => {
+  try {
+    req.body.makeId = req.params.id
+    const car = await Car.create(req.body)
+    res.status(200).json(car)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
 module.exports = {
   create,
   index,
   update,
   delete: deleteMake,
+  addCar
 }

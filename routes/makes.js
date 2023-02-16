@@ -6,4 +6,6 @@ router.get('/', makesCtrl.index)
 router.put('/:id', makesCtrl.update)
 router.delete('/:id', makesCtrl.delete)
 
+router.post('/:id/cars', makesCtrl.addCar)
+
 module.exports = router

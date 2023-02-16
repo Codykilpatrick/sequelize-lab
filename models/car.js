@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Car.belongsTo(models.Make, {
+        foreignKey: 'makeId',
+      })
     }
   }
   Car.init({
